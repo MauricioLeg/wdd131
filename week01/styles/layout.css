@@ -25,7 +25,7 @@ nav {
     font-size: medium;
     margin: 0;
     padding: 20px 0;
-    position: absolute;
+    position: sticky;
     display: flex;
     justify-content: space-around;
     
