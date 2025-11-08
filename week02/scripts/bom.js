@@ -27,3 +27,4 @@ variableButton.addEventListener("click", (event) => {
     }
     variableInput.focus();
 });
+

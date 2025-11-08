@@ -1,0 +1,47 @@
+@media screen and (min-width: 500px)
+{
+    #menu {
+		display: none;
+	}
+
+    .navbar {
+		flex-direction: row;
+	}
+    .navbar a {
+		display: block;
+		flex: 1 1 100%;
+	}
+
+    .navbar {
+        background-color: rgb(13, 60, 136);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    b {
+        display: flex;
+        justify-content: center;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: repeat (1fr);
+        grid-template-rows: repeat(1fr);
+    }
+    h1 {
+        display: grid;
+        grid-column: 1 / 4;
+    }
+
+    img {
+        width: 10rem;
+        height: 7rem;
+    }
+    
+    figcaption {
+        font-size: 1rem;
+        display: flex;
+        justify-self: center;
+    }
+}

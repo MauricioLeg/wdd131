@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer {
+    background-color: rgb(13, 60, 136);
+    color: white;
+}
+header {
+    font-size: xx-large;
+}
+
+#menu::before {
+    content: "☰";
+}
+#menu.open::before {
+    content: "−";
+}
+#menu {
+    font-size: 1.5rem;
+    border: 0;
+    background: none;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+b {
+    position: relative;
+    left: 1rem;
+    top: .5rem;
+}
+
+nav {
+	max-width: 700px;
+	margin: 1.5rem auto;
+}
+.navbar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	list-style: none;
+	background-color: #333;
+	color: #fff;
+}
+.navbar a {
+	display: none;
+	padding: 1rem;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+}
+.navbar a:hover {
+	background-color: #bbb;
+	color: #333;
+	font-weight: 700;
+}
+
+.open a {
+    display: block;
+}
+
+main {
+    max-width: 500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: fit-content;
+}
+h1 {
+    display: flex;
+    justify-self: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-self: center;
+}
+figcaption {
+    display: flex;
+    justify-self: center;
+    padding: 15px 0;
+    font-size: 1.5rem;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 1rem 0;
+    text-align: center;
+}
