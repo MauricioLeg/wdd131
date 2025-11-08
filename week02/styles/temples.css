@@ -12,7 +12,7 @@ header {
     font-size: xx-large;
 }
 body {
-    font-family: "Roboto" sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 #menu::before {
