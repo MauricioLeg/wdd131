@@ -11,6 +11,9 @@ header, footer {
 header {
     font-size: xx-large;
 }
+body {
+    font-family: "Roboto" sans-serif;
+}
 
 #menu::before {
     content: "☰";
@@ -36,6 +39,7 @@ b {
 nav {
 	max-width: 700px;
 	margin: 1.5rem auto;
+    display: flex;
 }
 .navbar {
 	display: flex;
