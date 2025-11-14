@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Favorite Place</title>
+    <meta name="description" content="Place in the world outside my own country that I want to visit someday">
+    <meta name="author" content="Mauricio Leguizamon">
+    <link rel="stylesheet" href="styles/place.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="scripts/place.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>South Korea</h1>
+    </header>
+    <main>
+        <div class="hero">
+            <picture>
+                <source media="(width >= 950px)" srcset="images/korea-large.webp">
+                <source media="(width >= 550px)" srcset="images/korea-medium.webp">
+                <img src="images/korea-small.webp" alt="City of South Korea">
+            </picture>
+            <section class="data">
+                <h2>Data</h2>
+                <p>Area: 100,364 sq km</p>
+                <p>Population: 51,667,029</p>
+                <p>Capital: Seoul</p>
+                <p>Languages: Korean</p>
+                <p>Currency: South Korean won</p>
+                <p>Time Zone: GMT+9</p>
+                <p>Calling Code: +82</p>
+                <p>Internet TLD: .kr</p>
+            </section>
+            <section id="weather"></section>
+        </div>
+    </main>
+    <footer>
+        <p>© <span id="currentyear"></span> ※ Mauricio Leguizamon ※ Tucuman, Argentina</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
