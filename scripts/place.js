@@ -29,12 +29,10 @@ async function getWeather() {
         if (wind > 4.8 && temperature <= 10) {
             chillDisplay = calculateWindChill(temperature, wind);
         }
-        document.getElementById("weather").innerHTML = `
-            <h2 class="weather-title">Weather <span class="icon-wrapper"><img src="images/weather_icon.svg" alt="Weather icon"></span></h2>
-            <p>Temperature: ${data.main.temp}°C</p>
-            <p>Condition: ${data.weather[0].description}</p>
-            <p>Wind: ${wind.toFixed(2)}km/h</p>
-            <p>Windchill: ${chillDisplay}`;
+        document.getElementById("temp").textContent = `Temperature: ${data.main.temp}°C`;
+        document.getElementById("condition").textContent = `Condition: ${data.weather[0].description}`;
+        document.getElementById("wind").textContent = `Wind: ${wind.toFixed(2)}km/h`;
+        document.getElementById("chill").textContent = `Windchill: ${chillDisplay}`;
     }
     catch (error) {
         console.error("Error:", error);

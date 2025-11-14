@@ -1,19 +1,25 @@
+:root {
+    --primary-color: rgb(141, 141, 236);
+    --secondary-color: rgb(255, 69, 69);
+    --font-family: "Roboto", sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-family);
 }
 h1, footer {
-    background-color: rgb(141, 141, 236);
+    background-color: var(--primary-color);
     text-align: center;
     padding: 10px;
 }
 
 .hero {
-    background-color: rgb(255, 69, 69);
+    background-color: var(--secondary-color);
 }
 .hero img {
     width: 100%;
@@ -37,7 +43,6 @@ h1, footer {
     position: relative;
     display: inline-block;
     margin-left: 0.5rem;
-    size: 2rem;
 }
 .icon-wrapper::after {
     content: "";
@@ -70,7 +75,7 @@ footer {
 
     .data h2, #weather h2 {
         padding-bottom: 0;
-        background-color: rgb(255, 69, 69);
+        background-color: var(--secondary-color);
         text-align: start;
     }
     .data h2 {
