@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer {
+    background-color: rgb(13, 60, 136);
+    color: white;
+}
+header {
+    font-size: xx-large;
+}
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+#menu::before {
+    content: "☰";
+}
+#menu.open::before {
+    content: "−";
+}
+#menu {
+    font-size: 1.5rem;
+    border: 0;
+    background: none;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+b {
+    position: relative;
+    left: 1rem;
+    top: .5rem;
+}
+
+nav {
+	max-width: 700px;
+	margin: 1.5rem auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+.navbar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	list-style: none;
+	background-color: #333;
+	color: #fff;
+}
+.navbar a {
+	display: none;
+	padding: 1rem;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+}
+.navbar a:hover {
+	background-color: #bbb;
+	color: #333;
+	font-weight: 700;
+}
+
+.open a {
+    display: block;
+}
+
+main {
+    max-width: 500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: fit-content;
+}
+h1 {
+    display: flex;
+    justify-self: center;
+}
+
+.res-grid section {
+    background-color: #eee;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-bottom: 10px;
+    max-width: 95%;
+    
+
+    h2 {
+        text-align: center;
+        margin-top: -20px;
+        padding: 20px;
+    }
+    p {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    p span:first-child {
+        text-align: right;
+        font-family: 'Lucida Grande';
+    }
+    p span:last-child {
+        text-align: left;
+    }
+    img {
+        margin-top: 1em;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 1rem 0;
+    text-align: center;
+}
