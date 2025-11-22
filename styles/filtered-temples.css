@@ -89,33 +89,31 @@ h1 {
     justify-self: center;
     margin-bottom: 10px;
     max-width: 95%;
-    
-
-    h2 {
-        text-align: center;
-        margin-top: -20px;
-        padding: 20px;
-    }
-    p {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 0.5rem;
-        justify-content: center;
-    }
-    p span:first-child {
-        text-align: right;
-        font-family: 'Lucida Grande';
-    }
-    p span:last-child {
-        text-align: left;
-    }
-    img {
-        margin-top: 1em;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
+}   
+.res-grid section h2 {
+    text-align: center;
+    margin-top: -20px;
+    padding: 20px;
+}
+.res-grid section p {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.res-grid section p span:first-child {
+    text-align: right;
+    font-family: 'Lucida Grande';
+}
+.res-grid section p span:last-child {
+    text-align: left;
+}
+.res-grid section img {
+    margin-top: 1em;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 footer {
