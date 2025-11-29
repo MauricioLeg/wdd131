@@ -4,41 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Form</title>
+    <meta name="description" content="Learning activity to practice making web forms well designed">
+    <meta name="author" content="Mauricio Leguizamon">
     <link rel="stylesheet" href="styles/form.css">
     <script src="scripts/form.js" defer></script>
-    <meta name="description" content="Learning activity to make web forms well designed">
 </head>
 <body>
     <header><h1>Product Review</h1></header>
     <main>
         <form method="get" action="review.html">
             <fieldset>
-                <legend>Product </legend>
-                <legend id="req"><b>*</b> indicates required</legend>
-                <label id="prod">Product Name<b> *</b>
+                <legend id="req">Product <br><b>*</b> indicates required</legend>
+                <label for="product" id="prod">Product Name<b> *</b>
                     <select name="product" required id="product">
+                        <option value=""></option>
                     </select>
                 </label>
                 
                 <label id="rating">Overall Rating<b> *</b></label>
-                <label>⭐<input type="radio" required name="rating" id="rating-one"></label>
-                <label>⭐⭐<input type="radio" required name="rating" id="rating-two"></label>
-                <label>⭐⭐⭐<input type="radio" required name="rating" id="rating-three"></label>
-                <label>⭐⭐⭐⭐<input type="radio" required name="rating" id="rating-four"></label>
-                <label>⭐⭐⭐⭐⭐<input type="radio" required name="rating" id="rating-five"></label>
+                <label for="rating-one">⭐<input type="radio" required name="rating" id="rating-one" value="1"></label>
+                <label for="rating-two">⭐⭐<input type="radio" required name="rating" id="rating-two" value="2"></label>
+                <label for="rating-three">⭐⭐⭐<input type="radio" required name="rating" id="rating-three" value="3"></label>
+                <label for="rating-four">⭐⭐⭐⭐<input type="radio" required name="rating" id="rating-four" value="4"></label>
+                <label for="rating-five">⭐⭐⭐⭐⭐<input type="radio" required name="rating" id="rating-five" value="5"></label>
                 
-                <label id="dt">Date of Installation<b> *</b>  <input type="date" required name="date" id="date"></label>
+                <label for="date" id="dt">Date of Installation<b> *</b>  <input type="date" required name="date" id="date"></label>
                 
                 <label id="feat">Which features did you find useful in the product?<br>(Check all that apply)</label>
-                <label>Durability<input type="checkbox" name="durability" id="durability" value="yes"></label>
-                <label>Ease of Use<input type="checkbox" name="use" id="use" value="yes"></label>
-                <label>Performance<input type="checkbox" name="performance" id="performance" value="yes"></label>
-                <label>Design<input type="checkbox" name="design" id="design" value="yes"></label>
+                <label for="durability">Durability<input type="checkbox" name="durability" id="durability" value="yes"></label>
+                <label for="use">Ease of Use<input type="checkbox" name="use" id="use" value="yes"></label>
+                <label for="performance">Performance<input type="checkbox" name="performance" id="performance" value="yes"></label>
+                <label for="design">Design<input type="checkbox" name="design" id="design" value="yes"></label>
                 
-                <label id="rev">Written Review (Optional) 
+                <label for="review" id="rev">Written Review (Optional) 
                     <textarea name="review" id="review" rows="7" cols="40"></textarea>
                 </label>
-                <label id="nm">Your Name (Optional) <input type="text" name="name" id="name"></label>
+                <label for="name" id="nm">Your Name (Optional) <input type="text" name="name" id="name"></label>
             </fieldset>
             <input type="submit" value="Post My Review">
         </form>
