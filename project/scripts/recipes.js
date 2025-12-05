@@ -26,11 +26,69 @@ function showCard(index) {
     });
 }
 
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    showCard(currentIndex);
-});
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    showCard(currentIndex);
-});
+if (prevBtn && nextBtn)
+{
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        showCard(currentIndex);
+    });
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        showCard(currentIndex);
+    });
+}
+
+// --------------------- SEND RECIPE FUNCTIONALITY ---------------------
+const variableList = document.querySelector("#list");
+const variableInput = document.querySelector("#item");
+const variableButton = document.querySelector('#add-ingredient-btn');
+
+if (variableButton && variableInput && variableList)
+{    
+    let chaptersArray = getChapterList() || [];
+    chaptersArray.forEach(chapter => {
+    displayList(chapter);
+    });
+
+    variableButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        
+        if (variableInput.value.trim() !== "")
+        {
+            displayList(variableInput.value);
+            chaptersArray.push(variableInput.value);
+            setChapterList(chaptersArray);
+            variableInput.value = '';
+            variableInput.focus();
+        }
+    });
+    function displayList(item) {
+        const listItem = document.createElement("li");
+        const deleteBtn = document.createElement("button");
+
+        listItem.textContent = item;
+        deleteBtn.textContent = "❌";
+        deleteBtn.classList.add('delete')
+        listItem.appendChild(deleteBtn);
+        variableList.appendChild(listItem);
+
+        deleteBtn.addEventListener("click", () => {
+            variableList.removeChild(listItem);
+            deleteChapter(listItem.textContent)
+            variableInput.focus();
+            }
+    )};
+
+    function setChapterList(list) {
+        localStorage.setItem('myRecipe', JSON.stringify(chaptersArray));
+    }
+    function deleteChapter(chapter) {
+        chapter = chapter.slice(0, chapter.length - 1);
+        chaptersArray = chaptersArray.filter(item => item !== chapter)
+        setChapterList();
+    }
+}
+
+function getChapterList() {
+    return JSON.parse(localStorage.getItem('myRecipe'))
+}

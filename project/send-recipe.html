@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Cooking</title>
+    <meta name="author" content="Mauricio Leguizamon">
+    <meta name="description" content="The page where you can find the most delicious recipes for desserts!">
+    <link rel="stylesheet" href="styles/recipes.css">
+    <script src="scripts/recipes.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Recipes</h1>
+        <button id="menu"></button>
+        <nav>
+            <ul class="navbar">
+                <li><a href="https://mauricioleg.github.io/wdd131/project/recipes.html">RECIPES</a></li>
+                <li><a href="#">SEND YOUR RECIPE!</a></li>
+                <li><a href="#">COOKING TIPS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="">
+            <fieldset>
+                <legend>Write your recipe here</legend>
+                <label for="item">Enter amount and ingredient:
+                    <input type="text" name="ingredient" id="item" placeholder="200g Flour">
+                </label>
+                <button type="submit" id="add-ingredient-btn">Add Ingredient</button>
+                <ul id="list"></ul>
+
+                <label for="instruction">Explain in detail the steps
+                    <textarea name="instruction" id="instruction" placeholder="Mix the ingredients" rows="7" cols="40"></textarea>
+                </label>
+            </fieldset>
+            <input type="submit" value="Post My Review">
+        </form>
+    </main>
+    <footer>
+        <p>© <span id="currentyear"></span> ※ Mauricio Leguizamon ※ Tucuman, Argentina</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

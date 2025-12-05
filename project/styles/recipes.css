@@ -20,9 +20,16 @@ header {
     align-items: center;
     justify-content: space-around;
     padding: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
 }
+
+/* -------------------- RECIPES PAGE STYLING -------------------- */
 body {
     font-family: var(--font-family);
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 /* Navigation bar CSS */
 #menu::before {
@@ -53,6 +60,9 @@ body {
 	list-style: none;
 	background-color: var(--background-color2);
 	color: var(--text-color2);
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
 }
 .navbar a {
 	display: none;
@@ -172,13 +182,10 @@ footer {
     nav {
         margin: 0;
     }
-    h1 {
-        margin-left: -5rem;
-    }
     .navbar {
         flex-direction: row;
         background-color: transparent;
-        gap: 10rem;
+        gap: 5rem;
     }
     .navbar a {
         display: block;
@@ -218,4 +225,74 @@ footer {
         overflow: visible;
         padding: 2rem 1rem 3rem 1rem;
     }
+
+    form {
+        background-color: #fff;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 1rem;
+    }
+}
+
+/* -------------------- SEND RECIPE PAGE STYLING -------------------- */
+fieldset {
+    margin: 2rem 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: .5rem 2%;
+}
+legend {
+    padding: 0 .5rem;
+}
+input[type="text"],
+textarea {
+    background-color: #eee;
+    display: block;
+    border: 1px solid #999;
+    border-radius: 6px;
+    padding: .70rem;
+    color: #111;
+    width: 100%;
+    max-width: 480px;
+    appearance: none;
+}
+label {
+    font-size: larger;
+    display: block;
+    padding-top: .5rem;
+}
+button[type="submit"] {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 4px #333;
+}
+button[type="submit"]:hover {
+    box-shadow: 2px 2px 10px #333;
+}
+
+input[type="submit"] {
+    border: none;
+    font-size: larger;
+    border-radius: 6px;
+    padding: .8rem;
+    width: 96%;
+    max-width: 480px;
+    margin: -1rem 2% 2rem 2%;
+    box-shadow: 1px 1px 4px #333;
+    transition: transform 0.3s ease;
+}
+input[type="submit"]:hover {
+    box-shadow: 2px 2px 10px #333;
+    transform: scale(1.05);
+}
+#list {
+    padding-left: 1rem;
+}
+.delete {
+    margin-left: 1rem;
+}
+li {
+    padding: .5rem;
 }
