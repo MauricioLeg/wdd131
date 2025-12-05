@@ -1,0 +1,221 @@
+:root {
+    --background-color1: #94afff;
+    --text-color1: #000242;
+    --font-family: Helvetica;
+    --background-color2: #321b41;
+    --text-color2: #e9c7ff;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header,
+footer {
+    background-color: var(--background-color1);
+    color: var(--text-color1);
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+body {
+    font-family: var(--font-family);
+}
+/* Navigation bar CSS */
+#menu::before {
+    content: "☰";
+}
+#menu.open::before {
+    content: "X";
+}
+#menu {
+    font-size: 1.5rem;
+    border: 0;
+    background: none;
+    position: absolute; 
+    right: 1rem;
+    top: .6rem;
+    z-index: 1002;
+    cursor: pointer;
+    width: 3rem; 
+    height: 3rem; 
+}
+#menu.open {
+    color: var(--text-color2);
+}
+.navbar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	list-style: none;
+	background-color: var(--background-color2);
+	color: var(--text-color2);
+}
+.navbar a {
+	display: none;
+	padding: 1rem;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+}
+.navbar a:hover {
+	background-color: #bbb;
+	color: #333;
+	font-weight: 700;
+}
+.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+.open a {
+    display: block;
+    z-index: 1001;
+    position: relative;
+}
+nav {
+	margin: 1.5rem auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+/* Recipe Cards Styling */
+h1 {
+    margin: 0;
+}
+.recipe-card {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--background-color1);
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    margin: 1rem;
+}
+.recipe-card h2,
+.recipe-card h3 {
+    text-align: center;
+    padding-top: 10px;
+}
+.recipe-card img {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+}
+.recipe-card p {
+    text-align: left;
+    padding: 1rem;
+    padding-left: 2.5rem;
+}
+
+/* Carousel CSS */
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.recipe-card {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+}
+.recipe-card.active {
+    display: block;
+}
+.carousel-btn {
+    background-color: var(--background-color1);
+    color: var(--text-color1);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+.carousel-btn:hover {
+    background-color: var(--background-color2);
+    color: var(--text-color2);
+    transform: scale(1.2);
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 1rem 0;
+    text-align: center;
+}
+@media screen and (min-width: 600px)
+{
+    #menu {
+        display: none;
+    }
+    nav {
+        margin: 0;
+    }
+    h1 {
+        margin-left: -5rem;
+    }
+    .navbar {
+        flex-direction: row;
+        background-color: transparent;
+        gap: 10rem;
+    }
+    .navbar a {
+        display: block;
+        color: var(--text-color1);
+        justify-content: space-around;
+    }
+    .navbar a:hover {
+        background-color: var(--background-color2);
+        color: var(--text-color2);
+    }
+    .recipe-card{
+        min-height: 100%;
+        box-sizing: border-box;
+        min-height: fit-content;
+    }
+    .recipe-card h2 {
+        text-align: left;
+        margin-left: 5rem;
+    }
+    .recipe-card img {
+        margin: 1rem 2rem 1rem 0;
+        width: 70%;
+        max-width: 250px;
+        max-height: 400px;
+        float: left;
+    }
+    .recipe-card p {
+        padding: 1rem;
+        padding-left: 2.5rem;
+    }
+    .carousel {
+        max-width: 100%;
+        margin: 2rem auto;
+    }
+    .carousel-container {
+        padding: 2rem;
+        overflow: visible;
+        padding: 2rem 1rem 3rem 1rem;
+    }
+}
