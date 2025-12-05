@@ -31,7 +31,6 @@ body {
     margin: 0;
     padding: 0;
 }
-/* Navigation bar CSS */
 #menu::before {
     content: "☰";
 }
@@ -60,12 +59,17 @@ body {
 	list-style: none;
 	background-color: var(--background-color2);
 	color: var(--text-color2);
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+}
+@media screen and (max-width: 500px){
+    .navbar {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
 }
 .navbar a {
 	display: none;
+    background-color: none;
 	padding: 1rem;
 	text-align: center;
 	text-decoration: none;
@@ -174,7 +178,7 @@ footer {
     padding: 1rem 0;
     text-align: center;
 }
-@media screen and (min-width: 600px)
+@media screen and (min-width: 500px)
 {
     #menu {
         display: none;
@@ -185,7 +189,7 @@ footer {
     .navbar {
         flex-direction: row;
         background-color: transparent;
-        gap: 5rem;
+        gap: 3rem;
     }
     .navbar a {
         display: block;
