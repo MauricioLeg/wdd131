@@ -12,6 +12,7 @@ hamButton.addEventListener("click", () => {
 	hamButton.classList.toggle("open");
 });
 
+// --------------------- RECIPES FUNCTIONALITY ---------------------
 let currentIndex = 0;
 const cards = document.querySelectorAll('.recipe-card');
 const prevBtn = document.getElementById('prevBtn');
@@ -44,11 +45,8 @@ const variableInput = document.querySelector("#item");
 const variableButton = document.querySelector('#add-ingredient-btn');
 
 if (variableButton && variableInput && variableList)
-{    
-    let chaptersArray = getChapterList() || [];
-    chaptersArray.forEach(chapter => {
-    displayList(chapter);
-    });
+{
+    let recipesArray = getRecipesList() || [];
 
     variableButton.addEventListener("click", (event) => {
         event.preventDefault();
@@ -56,8 +54,8 @@ if (variableButton && variableInput && variableList)
         if (variableInput.value.trim() !== "")
         {
             displayList(variableInput.value);
-            chaptersArray.push(variableInput.value);
-            setChapterList(chaptersArray);
+            recipesArray.push(variableInput.value);
+            setRecipeList(recipesArray);
             variableInput.value = '';
             variableInput.focus();
         }
@@ -74,21 +72,118 @@ if (variableButton && variableInput && variableList)
 
         deleteBtn.addEventListener("click", () => {
             variableList.removeChild(listItem);
-            deleteChapter(listItem.textContent)
+            deleteRecipe(listItem.textContent)
             variableInput.focus();
             }
     )};
-
-    function setChapterList(list) {
-        localStorage.setItem('myRecipe', JSON.stringify(chaptersArray));
-    }
-    function deleteChapter(chapter) {
-        chapter = chapter.slice(0, chapter.length - 1);
-        chaptersArray = chaptersArray.filter(item => item !== chapter)
-        setChapterList();
-    }
+}
+function deleteRecipe(recipe) {
+    recipe = recipe.slice(0, recipe.length -1);
+    let recipesArray = getRecipesList() || [];
+    recipesArray = recipesArray.filter(item => item !== recipe);
+    setRecipeList(recipesArray);
+}
+function setRecipeList(list) {
+    localStorage.setItem('myRecipe', JSON.stringify(list));
+}
+function getRecipesList() {
+    return JSON.parse(localStorage.getItem('myRecipe'));
 }
 
-function getChapterList() {
-    return JSON.parse(localStorage.getItem('myRecipe'))
+
+// --------------------- FORM SUBMISSION ---------------------
+const recipeForm = document.querySelector('form')
+if (recipeForm) {
+    recipeForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const recipeName = document.querySelector('#recipe-title')?.value || 'Untitled';
+        const ingredients = getRecipesList() || [];
+        const instructions = document.querySelector('#instruction')?.value || '';
+        const recipeImg = document.querySelector('#recipe-image');
+
+        if (recipeImg && recipeImg.files && recipeImg.files[0]) {
+            const file = imageInput.files[0];
+            const maxSize = 2 * 1024* 1024;
+
+            if (file.size > maxSize) {
+                alert('The file is too large! Please choose an image smaller than 2mb.')
+                return;
+            }
+            
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const ImageData = e.target.result;
+
+                const newRecipe = {
+                    name: recipeName,
+                    ingredients: ingredients,
+                    instructions: instructions,
+                    image: ImageData,
+                    dateAdded: new Date().toISOString()
+                };
+
+                let userRecipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
+                userRecipes.push(newRecipe);
+                localStorage.setItem('userRecipes', JSON.stringify(userRecipes));
+
+                window.location.href = 'my-recipe.html';
+            };
+            reader.readAsDataURL(recipeImg.files[0]);
+        }
+        else {
+            const newRecipe = {
+                name: recipeName,
+                ingredients: ingredients,
+                instructions: instructions,
+                image: null,
+                dateAdded: new Date().toISOString()
+            };
+
+            let userRecipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
+            userRecipes.push(newRecipe);
+            localStorage.setItem('userRecipes', JSON.stringify(userRecipes));
+
+            window.location.href = 'my-recipe.html'
+        }
+    });
+
+}
+
+// --------------------- MY RECIPE FUNCTIONALITY ---------------------
+function displayUserRecipes() {
+    const userRecipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
+    const container = document.querySelector('#user-recipes-container');
+
+    if (!container) return;
+    if (userRecipes.length === 0) {
+        container.innerHTML ='<p>No recipes yet. Add your first recipe!</p>';
+        return;
+    }
+    
+    container.innerHTML = '';
+    userRecipes.forEach((recipe, index) => {
+        const card = document.createElement('div')
+        card.className = 'recipe-card';
+
+        const imageSent = recipe.image? `<img src="${recipe.image}" alt="${recipe.name}" loading="lazy"`: '';
+
+        card.innerHTML = `
+            <h2>${recipe.name}</h2>
+            ${imageSent}
+            <h3>Ingredients</h3>
+            <ul>
+                ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+            </ul>
+            <h3>Instructions</h3>
+            <p>${recipe.instructions}</p>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+if (document.querySelector('#user-recipes-container')) {
+    displayUserRecipes();
 }

@@ -17,25 +17,32 @@
             <ul class="navbar">
                 <li><a href="https://mauricioleg.github.io/wdd131/project/recipes.html">RECIPES</a></li>
                 <li><a href="https://mauricioleg.github.io/wdd131/project/send-recipe.html">SEND YOUR RECIPE!</a></li>
-                <li><a href="https://mauricioleg.github.io/wdd131/project/cooking-tips.html">COOKING TIPS</a></li>
+                <li><a href="https://mauricioleg.github.io/wdd131/project/my-recipe.html">MY RECIPES</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <form action="">
+        <form method="get" action="my-recipe.html">
             <fieldset>
-                <legend>Write your recipe here</legend>
+                <legend id="req">Write your recipe here<br><br><b>*</b> indicates required</legend>
+                <label for="recipe-title">What is the name of your recipe?<b> *</b><input type="text" required name="recipe-title" id="recipe-title" placeholder="Chocolate Cake"></label>
                 <label for="item">Enter amount and ingredient:
                     <input type="text" name="ingredient" id="item" placeholder="200g Flour">
                 </label>
                 <button type="submit" id="add-ingredient-btn">Add Ingredient</button>
                 <ul id="list"></ul>
 
-                <label for="instruction">Explain in detail the steps
-                    <textarea name="instruction" id="instruction" placeholder="Mix the ingredients" rows="7" cols="40"></textarea>
+                <label for="instruction">Explain in detail the steps<b> *</b>
+                    <textarea name="instruction" required id="instruction" placeholder="Mix the ingredients" rows="7" cols="40"></textarea>
+                </label>
+                <label for="recipe-image">Add a pic of your recipe! (Not too large! Less than 2mb. Optional)
+                    <input type="file" id="recipe-image" name="recipe-image" accept="image/*">
+                </label>
+                <label for="recipe-image">Or add a link for the image (Optional)
+                    <input type="url" id="recipe-image" name="recipe-image" placeholder="https://example.com/image.jpg">
                 </label>
             </fieldset>
-            <input type="submit" value="Post My Review">
+            <input type="submit" value="Send My Recipe">
         </form>
     </main>
     <footer>

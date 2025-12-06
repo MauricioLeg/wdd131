@@ -300,3 +300,9 @@ input[type="submit"]:hover {
 li {
     padding: .5rem;
 }
+#req {
+    font-style: italic;
+}
+b {
+    color: rgb(170, 0, 0);
+}
