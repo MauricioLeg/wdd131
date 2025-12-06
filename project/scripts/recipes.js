@@ -168,8 +168,12 @@ if (recipeForm) {
 
 // --------------------- MY RECIPE FUNCTIONALITY ---------------------
 function displayUserRecipes() {
+    console.log('displayUserRecipes called'); // Debug
     const userRecipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
+    console.log('Parsed recipes:', userRecipes); // Debug
     const container = document.querySelector('#user-recipes-container');
+    console.log('Container found:', container); // Debug
+    
 
     if (!container) return;
     if (userRecipes.length === 0) {
@@ -182,7 +186,7 @@ function displayUserRecipes() {
         const card = document.createElement('div')
         card.className = 'recipe-card';
 
-        const imageSent = recipe.image? `<img src="${recipe.image}" alt="${recipe.name}" loading="lazy"`: '';
+        const imageSent = recipe.image? `<img src="${recipe.image}" alt="${recipe.name}" loading="lazy">`: '';
 
         card.innerHTML = `
             <h2>${recipe.name}</h2>
