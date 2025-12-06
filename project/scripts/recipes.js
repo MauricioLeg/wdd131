@@ -74,8 +74,8 @@ if (variableButton && variableInput && variableList)
             variableList.removeChild(listItem);
             deleteRecipe(listItem.textContent)
             variableInput.focus();
-            }
-    )};
+        });
+    }
 }
 function deleteRecipe(recipe) {
     recipe = recipe.slice(0, recipe.length -1);
