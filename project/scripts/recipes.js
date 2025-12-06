@@ -102,20 +102,16 @@ if (recipeForm) {
         const instructions = document.querySelector('#instruction')?.value || '';
         const recipeImg = document.querySelector('#recipe-image');
 
-        if (recipeImg) {
-            recipeImg.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const maxSize = 2 * 1024* 1024;
-                    const fileSize = (file.size / 1024 / 1024).toFixed(2);
-                    
-                    if (file.size > maxSize) {
-                        alert(`The file is ${fileSize}MB. Please choose an image smaller than 2mb.`)
-                        recipeImg.value = '';
-                    }
+        if (recipeImg && recipeImg.files && recipeImg.files[0]) {
+            const file = recipeImg.files[0];
+            const maxSize = 2 * 1024* 1024;
+            const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                
+            if (file.size > maxSize) {
+                alert(`The file is ${fileSize}MB. Please choose an image smaller than 2mb.`)
+                return;
                 }
-            });
-            
+                    
             const reader = new FileReader();
             
             reader.onload = function(e) {
@@ -135,8 +131,8 @@ if (recipeForm) {
 
                 window.location.href = 'my-recipe.html';
             };
-            reader.readAsDataURL(recipeImg.files[0]);
-        }
+            reader.readAsDataURL(file);
+        } 
         else {
             const newRecipe = {
                 name: recipeName,
@@ -153,7 +149,21 @@ if (recipeForm) {
             window.location.href = 'my-recipe.html'
         }
     });
-
+    const recipeImg = document.querySelector('#recipe-image');
+    if (recipeImg) {
+        recipeImg.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const maxSize = 2 * 1024* 1024;
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                
+                if (file.size > maxSize) {
+                    alert(`The file is ${fileSize}MB. Please choose an image smaller than 2mb.`)
+                    recipeImg.value = '';
+                }
+            }
+        });
+    }
 }
 
 // --------------------- MY RECIPE FUNCTIONALITY ---------------------
