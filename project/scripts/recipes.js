@@ -128,6 +128,7 @@ if (recipeForm) {
                 let userRecipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
                 userRecipes.push(newRecipe);
                 localStorage.setItem('userRecipes', JSON.stringify(userRecipes));
+                localStorage.removeItem('myRecipe');
 
                 window.location.href = 'my-recipe.html';
             };
@@ -145,6 +146,7 @@ if (recipeForm) {
             let userRecipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
             userRecipes.push(newRecipe);
             localStorage.setItem('userRecipes', JSON.stringify(userRecipes));
+            localStorage.removeItem('myRecipe');
 
             window.location.href = 'my-recipe.html'
         }
