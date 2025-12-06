@@ -12,7 +12,7 @@
 <body>
     <header>
         <h1>Recipes</h1>
-        <button id="menu"></button>
+        <button id="menu" aria-label="Toggle navigation menu"></button>
         <nav>
             <ul class="navbar">
                 <li><a href="https://mauricioleg.github.io/wdd131/project/recipes.html">RECIPES</a></li>
@@ -23,7 +23,11 @@
     </header>
     <main>
         <h1 id="my-recipe-title">My recipes</h1>
-        <div id="user-recipes-container"></div>
+        <div class="carousel" id="user-carousel">
+            <button class="carousel-btn prev" id="userPrevBtn" aria-label="Previous recipe">&lt;</button>
+            <div class="carousel-container" id="user-recipes-container"></div>
+            <button class="carousel-btn next" id="userNextBtn" aria-label="Next recipe">&gt;</button>
+        </div>
     </main>
     <footer>
         <p>© <span id="currentyear"></span> ※ Mauricio Leguizamon ※ Tucuman, Argentina</p>

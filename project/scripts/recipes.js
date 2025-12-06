@@ -168,12 +168,8 @@ if (recipeForm) {
 
 // --------------------- MY RECIPE FUNCTIONALITY ---------------------
 function displayUserRecipes() {
-    console.log('displayUserRecipes called'); // Debug
     const userRecipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
-    console.log('Parsed recipes:', userRecipes); // Debug
     const container = document.querySelector('#user-recipes-container');
-    console.log('Container found:', container); // Debug
-    
 
     if (!container) return;
     if (userRecipes.length === 0) {
@@ -183,10 +179,10 @@ function displayUserRecipes() {
     
     container.innerHTML = '';
     userRecipes.forEach((recipe, index) => {
-        const card = document.createElement('div')
-        card.className = 'recipe-card';
+        const card = document.createElement('div');
+        card.className = index === 0 ? 'recipe-card active' : 'recipe-card';
 
-        const imageSent = recipe.image? `<img src="${recipe.image}" alt="${recipe.name}" loading="lazy">`: '';
+        const imageSent = recipe.image ? `<img src="${recipe.image}" alt="${recipe.name}" loading="lazy">` : '';
 
         card.innerHTML = `
             <h2>${recipe.name}</h2>
@@ -200,6 +196,32 @@ function displayUserRecipes() {
         `;
 
         container.appendChild(card);
+    });
+    initializeUserCarousel();
+}
+
+function initializeUserCarousel() {
+    const userPrevBtn = document.querySelector('#userPrevBtn');
+    const userNextBtn = document.querySelector('#userNextBtn');
+    const cards = document.querySelectorAll('#user-recipes-container .recipe-card');
+    let currentIndex = 0;
+
+    if (!userPrevBtn || !userNextBtn || cards.length === 0) return;
+
+    function showUserCard(index) {
+        cards.forEach((card, i) => {
+            card.classList.toggle('active', i === index);
+        });
+    }
+
+    userPrevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        showUserCard(currentIndex);
+    });
+
+    userNextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        showUserCard(currentIndex);
     });
 }
 
