@@ -333,7 +333,7 @@ b {
 #recipe-image2 {
     display: block;
 }
-input[id="recipe-image"] {
+input[id="recipe-image1"] {
     border-radius: 10px;
     height: 44px;
     padding: 0 10px;
