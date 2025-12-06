@@ -329,7 +329,8 @@ li {
 b {
     color: rgb(170, 0, 0);
 }
-#recipe-image {
+#recipe-image1,
+#recipe-image2 {
     display: block;
 }
 input[id="recipe-image"] {
