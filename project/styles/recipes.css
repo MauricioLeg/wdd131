@@ -138,6 +138,14 @@ h1 {
     padding: 1rem;
     padding-left: 2.5rem;
 }
+.recipe-card ul {
+    text-align: left;
+    padding-left: 3rem;
+    margin: 1rem 0;
+}
+.recipe-card li {
+    padding: 0.25rem 0;
+}
 
 /* Carousel CSS */
 .carousel {
