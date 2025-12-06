@@ -102,14 +102,19 @@ if (recipeForm) {
         const instructions = document.querySelector('#instruction')?.value || '';
         const recipeImg = document.querySelector('#recipe-image');
 
-        if (recipeImg && recipeImg.files && recipeImg.files[0]) {
-            const file = imageInput.files[0];
-            const maxSize = 2 * 1024* 1024;
-
-            if (file.size > maxSize) {
-                alert('The file is too large! Please choose an image smaller than 2mb.')
-                return;
-            }
+        if (recipeImg) {
+            recipeImg.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const maxSize = 2 * 1024* 1024;
+                    const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                    
+                    if (file.size > maxSize) {
+                        alert(`The file is ${fileSize}MB. Please choose an image smaller than 2mb.`)
+                        recipeImg.value = '';
+                    }
+                }
+            });
             
             const reader = new FileReader();
             
@@ -158,7 +163,7 @@ function displayUserRecipes() {
 
     if (!container) return;
     if (userRecipes.length === 0) {
-        container.innerHTML ='<p>No recipes yet. Add your first recipe!</p>';
+        container.innerHTML ='<p id="the-recipe">No recipes yet. Add your first recipe <a href="https://mauricioleg.github.io/wdd131/project/send-recipe.html">here</a>!</p>';
         return;
     }
     

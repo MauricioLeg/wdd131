@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good Cooking</title>
+    <title>Good Cooking - Send recipe</title>
     <meta name="author" content="Mauricio Leguizamon">
     <meta name="description" content="The page where you can find the most delicious recipes for desserts!">
     <link rel="stylesheet" href="styles/recipes.css">
@@ -24,7 +24,8 @@
     <main>
         <form method="get" action="my-recipe.html">
             <fieldset>
-                <legend id="req">Write your recipe here<br><br><b>*</b> indicates required</legend>
+                <legend id="req">Write your recipe here</legend>
+                <p><b>*</b> indicates required</p>
                 <label for="recipe-title">What is the name of your recipe?<b> *</b><input type="text" required name="recipe-title" id="recipe-title" placeholder="Chocolate Cake"></label>
                 <label for="item">Enter amount and ingredient:
                     <input type="text" name="ingredient" id="item" placeholder="200g Flour">
@@ -35,7 +36,7 @@
                 <label for="instruction">Explain in detail the steps<b> *</b>
                     <textarea name="instruction" required id="instruction" placeholder="Mix the ingredients" rows="7" cols="40"></textarea>
                 </label>
-                <label for="recipe-image">Add a pic of your recipe! (Not too large! Less than 2mb. Optional)
+                <label for="recipe-image">Add a pic of your recipe!<br>(Not too large! Less than 2mb. Optional)
                     <input type="file" id="recipe-image" name="recipe-image" accept="image/*">
                 </label>
                 <label for="recipe-image">Or add a link for the image (Optional)

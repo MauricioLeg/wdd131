@@ -10,6 +10,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    height: 100%;
+}
+main {
+    flex: 1;
+}
 header,
 footer {
     background-color: var(--background-color1);
@@ -30,6 +36,9 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 #menu::before {
     content: "☰";
@@ -172,11 +181,9 @@ h1 {
 
 footer {
     position: relative;
-    bottom: 0;
-    right: 0;
-    left: 0;
     padding: 1rem 0;
     text-align: center;
+    margin-top: auto;
 }
 @media screen and (min-width: 500px)
 {
@@ -255,6 +262,7 @@ textarea {
     border: 1px solid #999;
     border-radius: 6px;
     padding: .70rem;
+    height: 45px;
     color: #111;
     width: 100%;
     max-width: 480px;
@@ -263,7 +271,7 @@ textarea {
 label {
     font-size: larger;
     display: block;
-    padding-top: .5rem;
+    padding-top: 1.5rem;
 }
 button[type="submit"] {
     margin: 0.5rem;
@@ -305,4 +313,24 @@ li {
 }
 b {
     color: rgb(170, 0, 0);
+}
+#recipe-image {
+    display: block;
+}
+input[id="recipe-image"] {
+    border-radius: 10px;
+    height: 44px;
+    padding: 0 10px;
+}
+input[type="url"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* -------------------- MY RECIPE PAGE STYLING -------------------- */
+#my-recipe-title {
+    text-align: center;
+}
+#the-recipe {
+    text-align: center;
 }
